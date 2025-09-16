@@ -33,9 +33,21 @@
 - **Ngôn ngữ lập trình:** Java 8+  
 - **Giao diện:** Java Swing  
 - **Truyền thông mạng:** Java RMI (Remote Method Invocation)  
-- **Lưu trữ dữ liệu:** 
+- **Lưu trữ dữ liệu:**  
   - File CSV (students.csv) để lưu thông tin sinh viên và điểm số  
 - **Công cụ phát triển:** IntelliJ IDEA / Eclipse / NetBeans  
+
+<p align="center">
+  <a href="https://www.java.com/"><img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white"></a>
+  <a href="https://docs.oracle.com/javase/tutorial/uiswing/"><img src="https://img.shields.io/badge/Java%20Swing-007396?style=for-the-badge&logo=java&logoColor=white"></a>
+  <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/rmi/"><img src="https://img.shields.io/badge/Java%20RMI-5382a1?style=for-the-badge&logo=java&logoColor=white"></a>
+  <a href="https://en.wikipedia.org/wiki/Comma-separated_values"><img src="https://img.shields.io/badge/CSV-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white"></a>
+</p>
+
+<p align="center">
+  <a href="https://www.eclipse.org/"><img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=eclipse&logoColor=white"></a>
+  <a href="https://netbeans.apache.org/"><img src="https://img.shields.io/badge/NetBeans-1B6AC6?style=for-the-badge&logo=apache-netbeans-ide&logoColor=white"></a>
+</p>
 
 ---
 
