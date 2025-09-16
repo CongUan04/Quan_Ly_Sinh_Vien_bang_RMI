@@ -42,40 +42,40 @@
 ## 3. Hình ảnh các chức năng
 
 ### 🔹 Giao diện chính (Java Swing)
-- Giao diện với hai tab: Quản lý Sinh viên (danh sách sinh viên với menu chức năng) và Quản lý Điểm.
-- Hiển thị danh sách sinh viên, tìm kiếm theo tên hoặc ID, thêm sinh viên mới, menu chức năng (Xem chi tiết, Sửa, Xóa)
+- Giao diện với hai tab: **Quản lý Sinh viên** (danh sách sinh viên với các nút chức năng Xem chi tiết, Sửa, Xóa) và **Quản lý Học Phần** (chọn học phần và cập nhật điểm số).
+- Hỗ trợ tìm kiếm theo tên hoặc ID, thêm sinh viên mới qua dialog.
 <p align="center">
-<img src="docs/QuanLySinhVien.png" alt="AIoTLab Logo" width="800"/>
+<img src="Images/GiaoDienChinh.png" alt="Giao diện chính" width="800"/>
 </p>
 
-### 🔹 Tab Quản lý Điểm
-- Hiển thị danh sách điểm số, cập nhật điểm cho từng sinh viên.  
+### 🔹 Tab Quản lý Học Phần
+- Chọn học phần từ dropdown (ví dụ: Lập Trình Mạng, Kỹ Năng Mềm), hiển thị bảng điểm số (Chuyên cần, Kiểm tra 1, Điểm thi) và nút Cập nhật cho từng sinh viên.
 <p align="center">
-<img src="docs/QuanLyDiem.png" alt="AIoTLab Logo" width="600"/>
+<img src="Images/QuanLyHocPhan.png" alt="Tab Quản lý Học Phần" width="800"/>
 </p>
 
 ### 🔹 Thêm sinh viên mới
-- Form nhập thông tin sinh viên.  
+- Dialog form nhập thông tin cơ bản (Mã SV, Họ tên, Năm sinh, Email, Lớp), với điểm mặc định 0 cho các học phần.
 <p align="center">
-<img src="docs/ThemMoiSinhVien.png" alt="AIoTLab Logo" width="600"/>
+<img src="Images/ThemSinhVien.png" alt="Thêm sinh viên mới" width="800"/>
 </p>
 
 ### 🔹 Xem chi tiết sinh viên
-- Hiển thị đầy đủ thông tin và điểm số (read-only).  
+- Dialog read-only hiển thị đầy đủ thông tin sinh viên, bao gồm điểm số chi tiết cho từng học phần.
 <p align="center">
-<img src="docs/XemChiTiet.png" alt="AIoTLab Logo" width="600"/>
+<img src="Images/XemChiTietSinhVien.png" alt="Xem chi tiết sinh viên" width="800"/>
 </p>
 
 ### 🔹 Cập nhật sinh viên
-- Form sửa thông tin sinh viên.  
+- Dialog form chỉnh sửa thông tin cơ bản (Mã SV, Họ tên, Năm sinh, Email, Lớp).
 <p align="center">
-<img src="docs/CapNhatSinhVien.png" alt="AIoTLab Logo" width="600"/>
+<img src="Images/CapNhatSinhVien.png" alt="Cập nhật sinh viên" width="800"/>
 </p>
 
-### 🔹 Cập nhật điểm
-- Form cập nhật điểm số (Toán, Văn, Anh).  
+### 🔹 Cập nhật điểm số học phần
+- Dialog form cập nhật điểm cụ thể cho một học phần (Chuyên cần, Kiểm tra 1, Điểm thi).
 <p align="center">
-<img src="docs/CapNhatDiem.png" alt="AIoTLab Logo" width="600"/>
+<img src="Images/CapNhatDiemSo.png" alt="Cập nhật điểm số" width="800"/>
 </p>
 
 ---
