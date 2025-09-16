@@ -132,7 +132,6 @@ java rmi.student.ClientGUI
 
 ```
 project_root/
-├── students.csv          # File lưu dữ liệu (tạo tự động)
 ├── rmi/
 │   └── student/
 │       ├── ServerMain.java         # Khởi động Server
@@ -140,6 +139,7 @@ project_root/
 │       ├── StudentManagerImpl.java # Implement RMI, quản lý dữ liệu CSV
 │       ├── Student.java            # Model Sinh viên (với điểm số)
 │       └── ClientGUI.java          # Giao diện Client Swing
+│       └── students.csv          # File lưu dữ liệu (tạo tự động)
 └── README.md               # Tài liệu này
 ```
 
