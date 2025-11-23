@@ -11,9 +11,9 @@ public class Student implements Serializable {
     private int year;
     private String email;
     private String className;
-    private Map<String, SubjectScores> subjectScores;  // Key: Tên học phần, Value: Điểm cho học phần đó
+    private Map<String, SubjectScores> subjectScores;  // Key: Mã học phần (module code), Value: Điểm cho học phần đó
 
-    // Inner class cho điểm học phần (không cần file mới)
+    // Inner class cho điểm học phần
     public static class SubjectScores implements Serializable {
         private static final long serialVersionUID = 1L;
         private double attendance;  // Chuyên cần
@@ -64,9 +64,6 @@ public class Student implements Serializable {
 
     public Student() {
         this.subjectScores = new HashMap<>();
-        // Khởi tạo học phần mặc định với điểm 0
-        this.subjectScores.put("Lập Trình Mạng", new SubjectScores());
-        this.subjectScores.put("Kỹ Năng Mềm", new SubjectScores());
     }
 
     public Student(String id, String name, int year, String email, String className) {
@@ -76,8 +73,6 @@ public class Student implements Serializable {
         this.email = email;
         this.className = className;
         this.subjectScores = new HashMap<>();
-        this.subjectScores.put("Lập Trình Mạng", new SubjectScores());
-        this.subjectScores.put("Kỹ Năng Mềm", new SubjectScores());
     }
 
     public Student(String id, String name, int year, String email, String className, Map<String, SubjectScores> subjectScores) {
@@ -87,13 +82,6 @@ public class Student implements Serializable {
         this.email = email;
         this.className = className;
         this.subjectScores = subjectScores != null ? new HashMap<>(subjectScores) : new HashMap<>();
-        // Đảm bảo có học phần mặc định
-        if (!this.subjectScores.containsKey("Lập Trình Mạng")) {
-            this.subjectScores.put("Lập Trình Mạng", new SubjectScores());
-        }
-        if (!this.subjectScores.containsKey("Kỹ Năng Mềm")) {
-            this.subjectScores.put("Kỹ Năng Mềm", new SubjectScores());
-        }
     }
 
     // Getters & Setters
@@ -111,13 +99,48 @@ public class Student implements Serializable {
     public void setSubjectScores(Map<String, SubjectScores> subjectScores) { this.subjectScores = subjectScores; }
 
     // Helper: Lấy điểm cho học phần cụ thể
-    public SubjectScores getScoresForModule(String moduleName) {
-        return subjectScores.getOrDefault(moduleName, new SubjectScores());
+    public SubjectScores getScoresForModule(String moduleCode) {
+        return subjectScores.getOrDefault(moduleCode, new SubjectScores());
     }
 
     // Helper: Cập nhật điểm cho học phần
-    public void updateScoresForModule(String moduleName, SubjectScores scores) {
-        subjectScores.put(moduleName, scores);
+    public void updateScoresForModule(String moduleCode, SubjectScores scores) {
+        subjectScores.put(moduleCode, scores);
+    }
+
+    // Tính điểm môn dựa trên số tín chỉ
+    public double getModuleScore(String moduleCode, int credits) {
+        SubjectScores scores = getScoresForModule(moduleCode);
+        double attWeight, test1Weight, examWeight;
+        if (credits == 1) {
+            attWeight = 0.2;
+            test1Weight = 0.0;
+            examWeight = 0.8;
+        } else if (credits == 2) {
+            attWeight = 0.15;
+            test1Weight = 0.15;
+            examWeight = 0.7;
+        } else { // 3, 4 hoặc hơn
+            attWeight = 0.1;
+            test1Weight = 0.3;
+            examWeight = 0.6;
+        }
+        return attWeight * scores.getAttendance() + test1Weight * scores.getTest1() + examWeight * scores.getExam();
+    }
+
+    // Tính GPA (điểm trung bình tích lũy, trọng số theo tín chỉ)
+    public double getGPA(Map<String, Integer> moduleCredits) {
+        double totalPoints = 0;
+        int totalCredits = 0;
+        for (Map.Entry<String, SubjectScores> entry : subjectScores.entrySet()) {
+            String code = entry.getKey();
+            if (moduleCredits.containsKey(code)) {
+                int cred = moduleCredits.get(code);
+                totalPoints += getModuleScore(code, cred) * cred;
+                totalCredits += cred;
+            }
+        }
+        return totalCredits > 0 ? totalPoints / totalCredits : 0.0;
     }
 
     @Override
