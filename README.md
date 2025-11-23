@@ -19,29 +19,31 @@
 
 </div>
 
-## 1. Giới thiệu hệ thống
+## 1. 📖 Giới thiệu hệ thống
 Ứng dụng **Quản lý Sinh viên** được xây dựng dựa trên công nghệ **Java RMI** cho phép **Client** (Java Swing) và **Server** (RMI Service) trao đổi dữ liệu qua mạng.  
-- **Server** chịu trách nhiệm quản lý dữ liệu sinh viên (thêm, sửa, xóa, tìm kiếm, hiển thị danh sách).  
-- **Client** cung cấp giao diện trực quan cho người dùng thực hiện các chức năng quản lý.  
-- Dữ liệu được lưu trữ trên **File CSV** tại Server, với hỗ trợ quản lý điểm số (Toán, Văn, Anh).  
+- Quản lý sinh viên (thêm, sửa, xóa, xem chi tiết, lọc theo lớp)
+- Quản lý học phần (thêm, sửa, xóa học phần)
+- Nhập/Xuất điểm theo học phần (Chuyên cần – Kiểm tra 1 – Thi)
+- Tự động tính điểm môn theo công thức trọng số tín chỉ và tính GPA tích lũy
+- Báo cáo GPA theo lớp hoặc từng sinh viên
+- Dữ liệu được lưu trữ bền vững trên **MongoDB** (collection `students` và `modules` trong database `studentdb`)
 
-Ứng dụng phù hợp cho việc học tập, nghiên cứu lập trình mạng và phân tán trong Java. Giao diện được chia thành hai tab: Quản lý Sinh viên và Quản lý Điểm, với chức năng tìm kiếm và menu hành động (Xem chi tiết, Sửa, Xóa) cho từng sinh viên.
+✨ Ứng dụng phù hợp cho việc học tập, nghiên cứu lập trình mạng và phân tán trong Java. Giao diện được chia thành hai tab: Quản lý Sinh viên và Quản lý Điểm, với chức năng tìm kiếm và menu hành động (Xem chi tiết, Sửa, Xóa) cho từng sinh viên.
 
 ---
 
-## 2. Công nghệ sử dụng
-- **Ngôn ngữ lập trình:** Java 8+  
-- **Giao diện:** Java Swing  
-- **Truyền thông mạng:** Java RMI (Remote Method Invocation)  
-- **Lưu trữ dữ liệu:**  
-  - File CSV (students.csv) để lưu thông tin sinh viên và điểm số  
-- **Công cụ phát triển:** IntelliJ IDEA / Eclipse / NetBeans  
+## 2. 💻 Công nghệ sử dụng
+- **Ngôn ngữ:** Java 17+
+- **Giao diện:** Java Swing (Nimbus Look & Feel)
+- **Truyền thông mạng:** Java RMI
+- **Cơ sở dữ liệu:** MongoDB (driver `mongo-java-driver`)
+- **IDE đề xuất:** IntelliJ IDEA / Eclipse / NetBeans
 
 <p align="center">
   <a href="https://www.java.com/"><img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white"></a>
   <a href="https://docs.oracle.com/javase/tutorial/uiswing/"><img src="https://img.shields.io/badge/Java%20Swing-007396?style=for-the-badge&logo=java&logoColor=white"></a>
   <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/rmi/"><img src="https://img.shields.io/badge/Java%20RMI-5382a1?style=for-the-badge&logo=java&logoColor=white"></a>
-  <a href="https://en.wikipedia.org/wiki/Comma-separated_values"><img src="https://img.shields.io/badge/CSV-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white"></a>
+  <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white"/>
 </p>
 
 <p align="center">
@@ -51,9 +53,9 @@
 
 ---
 
-## 3. Hình ảnh các chức năng
+## 3. 📸 Hình ảnh các chức năng
 
-### 🔹 Giao diện chính (Java Swing)
+### 🔹 🖼️ Giao diện chính (Java Swing)
 - Giao diện với hai tab: **Quản lý Sinh viên** (danh sách sinh viên với các nút chức năng Xem chi tiết, Sửa, Xóa) và **Quản lý Học Phần** (chọn học phần và cập nhật điểm số).
 - Hỗ trợ tìm kiếm theo tên hoặc ID, thêm sinh viên mới qua dialog.
 <p align="center">
@@ -90,9 +92,14 @@
 <img src="Images/CapNhatDiemSo.png" alt="Cập nhật điểm số" width="800"/>
 </p>
 
+### 🔹 Báo cáo GPA theo lớp
+<p align="center">
+<img src="Images/BaoCao.png" alt="Cập nhật điểm số" width="800"/>
+</p>
+
 ---
 
-## 4. Các bước cài đặt
+## 4. 🚀 Các bước cài đặt
 
 ### 🔹 1. Cài đặt môi trường
 - Cài **Java JDK 8+** (tải từ [Oracle](https://www.oracle.com/java/technologies/downloads/) hoặc OpenJDK).  
